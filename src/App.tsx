@@ -87,15 +87,32 @@ export default function App() {
     return 'Good evening';
   };
 
-  const handleWaitlistSubmit = (e: React.FormEvent) => {
+  const handleWaitlistSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const waitlistData = {
+      type: 'waitlist',
       name: formName,
       contact: formContact,
       timestamp: new Date().toISOString()
     };
     
-    // Mock saving to localStorage since Firebase was declined
+    try {
+      const scriptUrl = import.meta.env.VITE_GOOGLE_SHEET_URL;
+      if (scriptUrl) {
+        await fetch(scriptUrl, {
+          method: 'POST',
+          mode: 'no-cors', // Google Apps Script requires no-cors for simple triggers
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(waitlistData),
+        });
+      }
+    } catch (error) {
+      console.error('Submission failed:', error);
+    }
+    
+    // Still save to localStorage as a backup
     const existingWaitlist = JSON.parse(localStorage.getItem('waitlist_responses') || '[]');
     existingWaitlist.push(waitlistData);
     localStorage.setItem('waitlist_responses', JSON.stringify(existingWaitlist));
@@ -103,14 +120,31 @@ export default function App() {
     setIsSubmitted(true);
   };
 
-  const handleInvestSubmit = (e: React.FormEvent) => {
+  const handleInvestSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const investData = {
+      type: 'invest',
       name: investFormName,
       contact: investFormContact,
       amount: investFormAmount,
       timestamp: new Date().toISOString()
     };
+    
+    try {
+      const scriptUrl = import.meta.env.VITE_GOOGLE_SHEET_URL;
+      if (scriptUrl) {
+        await fetch(scriptUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(investData),
+        });
+      }
+    } catch (error) {
+      console.error('Investment submission failed:', error);
+    }
     
     const existingInvestments = JSON.parse(localStorage.getItem('investment_interest') || '[]');
     existingInvestments.push(investData);
