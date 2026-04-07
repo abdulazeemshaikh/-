@@ -55,7 +55,7 @@ export default function App() {
       id: 'intrinsic',
       title: 'INTRINSIC',
       tagline: 'Robots that care, materials that change everything.',
-      description: 'Robots that care, materials that change everything. INTRINSIC builds personal robots that clean your teeth, cut your nails and hair, park your car, and even project live translations inside mosques. Our Colossus Lab creates graphene, antimatter, and quantum tech. And we wirelessly beam electricity through air while harvesting wind from passing cars. The physical world, automated and upgraded.',
+      description: 'INTRINSIC builds personal robots that help you make your life simpler, faster and 100x more efficient. Our Colossus Lab creates graphene, antimatter, and quantum tech. And we wirelessly beam electricity through air while harvesting wind from passing cars. The physical world, automated and upgraded.',
       color: 'from-orange-500/20 to-red-500/20'
     },
     {
