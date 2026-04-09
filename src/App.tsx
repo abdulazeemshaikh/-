@@ -230,47 +230,6 @@ export default function App() {
                       </TextShimmer>
                     </motion.div>
                     
-                    <motion.div variants={itemVariants} className="flex flex-row items-center gap-2.5 text-black/40">
-                      <span className="text-sm mr-1">Abdul Azeem Shaikh</span>
-                      <a href="https://www.instagram.com/abdulazeemshaikhh/" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">
-                        <Instagram size={18} strokeWidth={1.5} />
-                      </a>
-                      <a href="https://x.com/abdulazeem_s" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                        </svg>
-                      </a>
-                      <div className="relative flex items-center">
-                        <button 
-                          onClick={handleCopyEmail}
-                          className="hover:text-black transition-all relative group/mail flex items-center justify-center w-8 h-8 rounded-full hover:bg-black/5 active:scale-95"
-                        >
-                          <AnimatePresence mode="wait">
-                            {copied ? (
-                              <motion.div
-                                key="check"
-                                initial={{ scale: 0, opacity: 0, rotate: -45 }}
-                                animate={{ scale: 1, opacity: 1, rotate: 0 }}
-                                exit={{ scale: 0, opacity: 0, rotate: 45 }}
-                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                              >
-                                <Check size={18} strokeWidth={2} className="text-green-600" />
-                              </motion.div>
-                            ) : (
-                              <motion.div
-                                key="mail"
-                                initial={{ scale: 0.8, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                exit={{ scale: 0.8, opacity: 0 }}
-                                transition={{ duration: 0.2 }}
-                              >
-                                <Mail size={18} strokeWidth={1.5} />
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </button>
-                      </div>
-                    </motion.div>
 
                     <div className="mt-2 flex flex-col items-center gap-4">
                     </div>
