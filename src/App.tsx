@@ -231,37 +231,55 @@ export default function App() {
                     </motion.div>
                     
 
-                    <motion.div variants={itemVariants} className="flex flex-row items-center gap-2.5 text-black/40">
-                      <span className="text-sm mr-1">Abdul Azeem Shaikh</span>
-                      <div className="relative flex items-center">
-                        <button 
-                          onClick={handleCopyEmail}
-                          className="hover:text-black transition-all relative group/mail flex items-center justify-center w-8 h-8 rounded-full hover:bg-black/5 active:scale-95"
+                    <motion.div variants={itemVariants} className="flex flex-row items-center gap-1 text-black/40">
+                      <span className="text-sm mr-2">Abdul Azeem Shaikh</span>
+                      <div className="flex items-center gap-0.5">
+                        <a 
+                          href="https://instagram.com/abdulazeemshaikh" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="hover:text-black transition-all flex items-center justify-center w-8 h-8 rounded-full hover:bg-black/5 active:scale-95"
                         >
-                          <AnimatePresence mode="wait">
-                            {copied ? (
-                              <motion.div
-                                key="check"
-                                initial={{ scale: 0, opacity: 0, rotate: -45 }}
-                                animate={{ scale: 1, opacity: 1, rotate: 0 }}
-                                exit={{ scale: 0, opacity: 0, rotate: 45 }}
-                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                              >
-                                <Check size={18} strokeWidth={2} className="text-green-600" />
-                              </motion.div>
-                            ) : (
-                              <motion.div
-                                key="mail"
-                                initial={{ scale: 0.8, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                exit={{ scale: 0.8, opacity: 0 }}
-                                transition={{ duration: 0.2 }}
-                              >
-                                <Mail size={18} strokeWidth={1.5} />
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </button>
+                          <Instagram size={18} strokeWidth={1.5} />
+                        </a>
+                        <a 
+                          href="https://x.com/abdulazeemsh_" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="hover:text-black transition-all flex items-center justify-center w-8 h-8 rounded-full hover:bg-black/5 active:scale-95"
+                        >
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+                        </a>
+                        <div className="relative flex items-center">
+                          <button 
+                            onClick={handleCopyEmail}
+                            className="hover:text-black transition-all relative group/mail flex items-center justify-center w-8 h-8 rounded-full hover:bg-black/5 active:scale-95"
+                          >
+                            <AnimatePresence mode="wait">
+                              {copied ? (
+                                <motion.div
+                                  key="check"
+                                  initial={{ scale: 0, opacity: 0, rotate: -45 }}
+                                  animate={{ scale: 1, opacity: 1, rotate: 0 }}
+                                  exit={{ scale: 0, opacity: 0, rotate: 45 }}
+                                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                >
+                                  <Check size={18} strokeWidth={2} className="text-green-600" />
+                                </motion.div>
+                              ) : (
+                                <motion.div
+                                  key="mail"
+                                  initial={{ scale: 0.8, opacity: 0 }}
+                                  animate={{ scale: 1, opacity: 1 }}
+                                  exit={{ scale: 0.8, opacity: 0 }}
+                                  transition={{ duration: 0.2 }}
+                                >
+                                  <Mail size={18} strokeWidth={1.5} />
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </button>
+                        </div>
                       </div>
                     </motion.div>
 
